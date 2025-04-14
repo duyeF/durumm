@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duruyu Çok Seviyorum</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e74c3c',secondary:'#f39c12'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes swing {
+0% { transform: rotate(5deg); }
+50% { transform: rotate(-5deg); }
+100% { transform: rotate(5deg); }
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+@keyframes sparkle {
+0% { opacity: 0.4; transform: scale(0.8); }
+50% { opacity: 1; transform: scale(1.2); }
+100% { opacity: 0.4; transform: scale(0.8); }
+}
+.heart-left {
+animation: swing 3s infinite ease-in-out;
+transform-origin: top center;
+}
+.heart-right {
+animation: swing 3.5s infinite ease-in-out;
+transform-origin: top center;
+}
+.photo-frame {
+position: relative;
+animation: float 6s infinite ease-in-out;
+transform-style: preserve-3d;
+}
+.photo-frame::after {
+content: '';
+position: absolute;
+inset: 0;
+z-index: 20;
+border-radius: inherit;
+box-shadow: inset 0 0 15px rgba(255,255,255,0.2);
+pointer-events: none;
+}
+.page-section {
+height: 100vh;
+overflow: hidden;
+position: relative;
+scroll-snap-align: start;
+}
+html {
+scroll-behavior: smooth;
+scroll-snap-type: y mandatory;
+overflow-y: scroll;
+overscroll-behavior-y: none;
+}
+body {
+overflow: hidden;
+background-color: #121212;
+color: #e0e0e0;
+}
+</style>
+</head>
+<body class="bg-gray-900 font-sans overflow-hidden">
+
+<!-- Sayaç -->
+<div class="fixed top-0 left-1/2 transform -translate-x-1/2 z-20 mt-4">
+  <div class="counter px-6 py-2 bg-gray-800 rounded-full shadow-md">
+    <span id="counterText">00 gün 00 saat 00 dakika 00 saniye</span>
+  </div>
+</div>
+
+<div id="page1" class="page-section flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/d0fd7939232974cb190f6fe7223dcaad.jpg')] bg-cover bg-center opacity-40"></div>
+<!-- Hearts -->
+<div class="heart-left absolute top-0 left-1/4 mt-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-12 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="heart-right absolute top-0 right-1/4 mt-8">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-16 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="absolute top-16 left-10">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<div class="absolute bottom-24 right-12">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<!-- Main Content -->
+<div class="z-10 flex flex-col items-center px-8 max-w-xs">
+<!-- Photo Frame -->
+<div class="photo-frame w-64 h-80 rounded-2xl overflow-hidden mb-6 relative border-4 border-gray-700 shadow-[0_10px_30px_rgba(231,76,60,0.4)]">
+<div class="absolute inset-0 bg-gradient-to-b from-gray-800/60 to-primary/20"></div>
+<img src="https://public.readdy.ai/ai/img_res/c16791539ce386efb8002ee65e506abf.jpg" alt="Çift" class="w-full h-full object-cover object-top relative z-10">
+</div>
+<!-- müzik -->
+<div class="flex items-center bg-[#1DB954] text-white rounded-lg shadow-lg p-4 max-w-sm mx-auto mt-6">
+  <img src="data:image/jpeg;base64,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" alt="Şarkı Kapağı" class="w-16 h-16 rounded-md mr-4">
+  <div class="flex-1">
+    <h3 class="text-lg font-semibold">GÜZEL KADIN</h3>
+    <p class="text-sm opacity-80">Sana Yazılmış Bir Şarkı...</p>
+  </div>
+  <button onclick="playLoveSong()" id="playButton" class="ml-4 bg-white text-[#1DB954] p-2 rounded-full shadow-md hover:bg-gray-100 transition">
+    ▶️
+  </button>
+</div>
+
+<audio id="loveSong">
+  <source src="https://raw.githubusercontent.com/duyeF/duru/626693c5f96dcf33ac7257413a632c72804806ac/Ravi%C5%9F%20-%20G%C3%BCzel%20Kad%C4%B1n%20(Official%20Video)%20%5B%20%40ravismuzik%20%5D.mp3" type="audio/mpeg">
+  Tarayıcınız ses dosyasını desteklemiyor.
+</audio>
+<!-- Down Arrow -->
+<div class="w-12 h-12 rounded-full bg-gray-800 shadow-md flex items-center justify-center mt-4 cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-700" onclick="scrollToPage(currentPage + 1)">
+<i class="ri-arrow-down-s-line ri-xl text-primary"></i>
+</div>
+</div>
+<!-- Page Indicator -->
+<div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+<div class="w-8 h-2 rounded-full bg-primary shadow-md"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+</div>
+</div>
+<div id="page2" class="page-section flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/098e4c0c452950ff12264324d8cc43c3.jpg')] bg-cover bg-center opacity-40"></div>
+<!-- Hearts -->
+<div class="heart-left absolute top-0 left-1/4 mt-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-12 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="heart-right absolute top-0 right-1/4 mt-8">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-16 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="absolute top-16 left-10">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<div class="absolute bottom-24 right-12">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<!-- Main Content -->
+<div class="z-10 flex flex-col items-center px-8 max-w-xs">
+<!-- Photo Frame -->
+<div class="photo-frame w-64 h-80 rounded-2xl overflow-hidden mb-6 relative border-4 border-gray-700 shadow-[0_10px_30px_rgba(243,156,18,0.4)]">
+<div class="absolute inset-0 bg-gradient-to-b from-gray-800/60 to-secondary/20"></div>
+<img src="https://public.readdy.ai/ai/img_res/b6fbc623fe35bd5d3f7b22b6c13ec53e.jpg" alt="Çift" class="w-full h-full object-cover object-top relative z-10">
+</div>
+<!-- Text -->
+<h1 class="text-center text-3xl font-['Playfair_Display'] font-medium text-gray-100 mt-4 mb-8">
+Güzelliğine Adanmış Tüm<br>
+Güzel Şarkılar<br>
+</h1>
+<!-- Down Arrow -->
+<div class="w-12 h-12 rounded-full bg-gray-800 shadow-md flex items-center justify-center mt-4 cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-700" onclick="scrollToPage(currentPage + 1)">
+<i class="ri-arrow-down-s-line ri-xl text-primary"></i>
+</div>
+</div>
+<!-- Page Indicator -->
+<div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-primary shadow-md"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+</div>
+</div>
+<script>
+// Snap scroll functionality
+let isScrolling = false;
+let currentPage = 1;
+const totalPages = 5;
+let bgMusic;
+// MÜZİK
+function playLoveSong() {
+  const song = document.getElementById('loveSong');
+  if (song.paused) {
+    song.play();
+    document.getElementById('playButton').innerHTML = '⏸️';  // Oynuyorsa durdur simgesi
+  } else {
+    song.pause();
+    document.getElementById('playButton').innerHTML = '▶️';  // Durdurulduysa oynat simgesi
+  }
+}
+// Başlangıç tarihini buraya girin (Örnek: 2020-01-01)
+const startDate = new Date('2024-12-02T23:55:00'); 
+// Sayaç için fonksiyon
+function updateCounter() {
+  const now = new Date();
+  const diff = now - startDate;
+    
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+  const counterText = `${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye`;
+  document.getElementById("counterText").innerText = `${counterText}`;
+}
+
+// Sayaç her saniye güncellenecek
+setInterval(updateCounter, 1000);
+// Initialize background music
+function initBackgroundMusic() {
+bgMusic = new Audio('https://public.readdy.ai/gen_page/romantic_background_music.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.5;
+// Auto play music when page loads
+playMusic();
+// Add one-time click event to start music (needed for mobile)
+document.body.addEventListener('click', function startMusic() {
+playMusic();
+document.body.removeEventListener('click', startMusic);
+}, { once: true });
+}
+function toggleMusic() {
+if (bgMusic.paused) {
+playMusic();
+} else {
+bgMusic.play();
+}
+}
+function playMusic() {
+bgMusic.play().catch(err => {
+console.log('Playback prevented by browser', err);
+// Try again with user interaction
+document.addEventListener('click', function playOnInteraction() {
+bgMusic.play().then(() => {
+document.removeEventListener('click', playOnInteraction);
+});
+}, { once: true });
+});
+}
+function scrollToPage(pageNumber) {
+if (pageNumber < 1 || pageNumber > totalPages || isScrolling) return;
+isScrolling = true;
+currentPage = pageNumber;
+const targetElement = document.getElementById(`page${pageNumber}`);
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+setTimeout(() => {
+isScrolling = false;
+}, 800);
+}
+}
+// Handle scroll events
+window.addEventListener('wheel', (e) => {
+if (isScrolling) return;
+if (e.deltaY > 0) {
+// Scrolling down
+scrollToPage(currentPage + 1);
+} else {
+// Scrolling up
+scrollToPage(currentPage - 1);
+}
+});
+// Handle touch events for mobile
+let touchStartY = 0;
+let touchEndY = 0;
+window.addEventListener('touchstart', (e) => {
+touchStartY = e.changedTouches[0].screenY;
+});
+window.addEventListener('touchend', (e) => {
+if (isScrolling) return;
+touchEndY = e.changedTouches[0].screenY;
+const diffY = touchStartY - touchEndY;
+// Threshold for swipe detection
+if (Math.abs(diffY) > 50) {
+if (diffY > 0) {
+// Swipe up (go down)
+scrollToPage(currentPage + 1);
+} else {
+// Swipe down (go up)
+scrollToPage(currentPage - 1);
+}
+}
+});
+// Button click handlers still work
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const pageNumber = parseInt(targetId.replace('#page', ''));
+if (!isNaN(pageNumber)) {
+scrollToPage(pageNumber);
+}
+});
+});
+// Initialize music when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+initBackgroundMusic();
+// Try to autoplay music immediately
+setTimeout(playMusic, 500);
+});
+</script>
+<div id="page3" class="page-section flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/0f3bf8ab240cd6ea0de6d869f6b9bfc6.jpg')] bg-cover bg-center opacity-40"></div>
+<!-- Hearts -->
+<div class="heart-left absolute top-0 left-1/4 mt-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-12 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="heart-right absolute top-0 right-1/4 mt-8">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-16 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="absolute top-16 left-10">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<div class="absolute bottom-24 right-12">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<!-- Main Content -->
+<div class="z-10 flex flex-col items-center px-8 max-w-xs">
+<!-- Photo Frame -->
+<div class="photo-frame w-64 h-80 rounded-2xl overflow-hidden mb-6 relative border-4 border-gray-700 shadow-[0_10px_30px_rgba(231,76,60,0.4)]">
+<div class="absolute inset-0 bg-gradient-to-b from-gray-800/60 to-primary/20"></div>
+<img src="https://public.readdy.ai/ai/img_res/95c0d90723a5930943270ac53776e0fa.jpg" alt="Çift" class="w-full h-full object-cover object-top relative z-10">
+</div>
+<!-- Text -->
+<h1 class="text-center text-2xl font-['Playfair_Display'] font-medium text-gray-100 mt-4 mb-8">
+Gülüşüne Dünyaları<br>
+Verseler Değişmem<br>
+</h1>
+<!-- Down Arrow -->
+<div class="w-12 h-12 rounded-full bg-gray-800 shadow-md flex items-center justify-center mt-4 cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-700" onclick="scrollToPage(currentPage + 1)">
+<i class="ri-arrow-down-s-line ri-xl text-primary"></i>
+</div>
+</div>
+<!-- Page Indicator -->
+<div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-primary shadow-md"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+</div>
+</div>
+<div id="page4" class="page-section flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/8c3ece1cb87e3f02e68b41955439a783.jpg')] bg-cover bg-center opacity-40"></div>
+<!-- Hearts -->
+<div class="heart-left absolute top-0 left-1/4 mt-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-12 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="heart-right absolute top-0 right-1/4 mt-8">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-16 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="absolute top-16 left-10">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<div class="absolute bottom-24 right-12">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<!-- Main Content -->
+<div class="z-10 flex flex-col items-center px-8 max-w-xs">
+<!-- Photo Frame -->
+<div class="photo-frame w-64 h-80 rounded-2xl overflow-hidden mb-6 relative border-4 border-gray-700 shadow-[0_10px_30px_rgba(243,156,18,0.4)]">
+<div class="absolute inset-0 bg-gradient-to-b from-gray-800/60 to-secondary/20"></div>
+<img src="https://public.readdy.ai/ai/img_res/5d9c01879562cb980cca70282b470b55.jpg" alt="Çift" class="w-full h-full object-cover object-top relative z-10">
+</div>
+<!-- Text -->
+<h1 class="text-center text-2xl font-['Playfair_Display'] font-medium text-gray-100 mt-4 mb-8">
+Benim Cennetim Senin<br>
+Güzel Gözlerinde<br>
+</h1>
+<!-- Down Arrow -->
+<div class="w-12 h-12 rounded-full bg-gray-800 shadow-md flex items-center justify-center mt-4 cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-700" onclick="scrollToPage(currentPage + 1)">
+<i class="ri-arrow-down-s-line ri-xl text-primary"></i>
+</div>
+</div>
+<!-- Page Indicator -->
+<div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-primary shadow-md"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+</div>
+</div>
+<div id="page5" class="page-section flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90"></div>
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/29833433559e3c43f0583a2a7a03e362.jpg')] bg-cover bg-center opacity-40"></div>
+<!-- Hearts -->
+<div class="heart-left absolute top-0 left-1/4 mt-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-12 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="heart-right absolute top-0 right-1/4 mt-8">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-heart-fill ri-xl text-primary"></i>
+</div>
+<div class="w-px h-16 bg-primary/30 mx-auto -mt-1"></div>
+</div>
+<div class="absolute top-16 left-10">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<div class="absolute bottom-24 right-12">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-heart-fill ri-lg text-secondary opacity-60"></i>
+</div>
+</div>
+<!-- Main Content -->
+<div class="z-10 flex flex-col items-center px-8 max-w-xs">
+<!-- Photo Frame -->
+<div class="photo-frame w-64 h-80 rounded-2xl overflow-hidden mb-6 relative border-4 border-gray-700 shadow-[0_10px_30px_rgba(231,76,60,0.4)]">
+<div class="absolute inset-0 bg-gradient-to-b from-gray-800/60 to-primary/20"></div>
+<img src="https://public.readdy.ai/ai/img_res/62cbecd5f3fd650ae343e1e9908377c4.jpg" alt="Çift" class="w-full h-full object-cover object-top relative z-10">
+</div>
+<!-- Text -->
+<h1 class="text-center text-2xl font-['Playfair_Display'] font-medium text-gray-100 mt-4 mb-8">
+Seni<br>
+Her Ne Olursa Olsun<br>
+Sonsuza Kadar<br>
+Seveceğim<br>
+❤️
+</h1>
+<!-- Up Arrow -->
+<div class="w-12 h-12 rounded-full bg-gray-800 shadow-md flex items-center justify-center mt-4 cursor-pointer hover:shadow-lg transition-all duration-300 border border-gray-700" onclick="scrollToPage(1)">
+<i class="ri-arrow-up-s-line ri-xl text-primary"></i>
+</div>
+</div>
+<!-- Page Indicator -->
+<div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-gray-700 shadow-sm"></div>
+<div class="w-8 h-2 rounded-full bg-primary shadow-md"></div>
+</div>
+</div>
+</body>
+</html>
